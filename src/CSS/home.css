@@ -1,0 +1,128 @@
+
+.video-background {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .video-background video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  
+  
+  /* Estilos adicionales para los enlaces y contenido */
+  
+
+.box {
+    position: relative;
+    top: 110px;
+    left: 30%;
+    width: 220px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    z-index: 1;
+   }
+
+   
+/*2DO APARTADO*/
+.box2 {
+    position: relative;
+    top: -190px;
+    left: 55%;
+    width: 220px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    z-index: 1;
+   }
+   
+   .box::before, .box2::before  {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    left: 50px;
+    width: 50%;
+    height: 100%;
+    text-decoration: none;
+    background: #fff;
+    border-radius: 8px;
+    transform: skewX(15deg);
+    transition: 0.5s;
+   }
+   
+   .box::after, .box2::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50;
+    width: 50%;
+    height: 100%;
+    background: #fff;
+    border-radius: 8px;
+    transform: skewX(15deg);
+    transition: 0.5s;
+    filter: blur(30px);
+   }
+   
+   .box:hover:before,
+   .box:hover:after {
+    transform: skewX(0deg) scaleX(1.3);
+   }
+
+   .box2:hover:before,
+   .box2:hover:after {
+    transform: skewX(0deg) scaleX(1.3);
+   }
+   
+   .box:before,
+   .box:after {
+    background: linear-gradient(315deg, #1dfd4e, #2eaee0)
+   }
+
+   .box2:before,
+   .box2:after {
+    background: linear-gradient(315deg, #1dfd4e, #2eaee0)
+   }
+   
+   .box .content, .box2 .content {
+    position: relative;
+    width: 190px;
+    height: 254px;
+    padding: 20px 40px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 1;
+    transform: 0.5s;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   }
+   
+   .box .content h2, .box2 .content h2{
+    font-size: 20px;
+    color: #000000;
+    margin-bottom: 10px;
+   }
+
+   .content:hover{
+    font-size: 20px;
+    color: #ffffff;
+    font-style: italic;
+   }
+
+   
