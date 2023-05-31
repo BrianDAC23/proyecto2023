@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../../firebase";
 import "../../CSS/styles.css";
 
 function PostForm({ onSubmit, post }) {
@@ -10,30 +12,48 @@ function PostForm({ onSubmit, post }) {
     if (post) {
       setTitle(post.title);
       setContent(post.content);
-      setLocation(post.location);
+      if (post.hasOwnProperty("location")) {
+        setLocation(post.location);
+      }
     }
   }, [post]);
 
   function handleSubmit(event) {
     event.preventDefault();
-    onSubmit({ title, content, location });
+    const postObject = { title, content, location };
+    savePostToFirestore(postObject);
+    onSubmit(postObject);
     setTitle("");
     setContent("");
     setLocation({ lat: 0, lng: 0 });
   }
 
- 
+  async function savePostToFirestore(postObject) {
+    try {
+      const docRef = await addDoc(collection(db, "posts"), postObject);
+      console.log("Post saved with ID: ", docRef.id);
+    } catch (error) {
+      console.error("Error adding post: ", error);
+    }
+  }
 
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        Agregue un titulo a su publicación:
-        <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+        Agregue un título a su publicación:
+        <input
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
       </label>
       <br />
       <label>
-        Agregue una descripción a su publicacion:
-        <textarea value={content} onChange={(e) => setContent(e.target.value)} />
+        Agregue una descripción a su publicación:
+        <textarea
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+        />
       </label>
       <br />
       <button type="submit">Publicar</button>
@@ -42,10 +62,3 @@ function PostForm({ onSubmit, post }) {
 }
 
 export default PostForm;
-
-
-
-
-
-
-
