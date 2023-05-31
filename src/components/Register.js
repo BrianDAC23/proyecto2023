@@ -27,18 +27,30 @@ export function Register() {
 
     }
     return (
+
         <div>
-            {error && <p>{error}</p>}
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="email">Email</label>
-                <input type="email" name="email" placeholder="Ingrese su Email" onChange={handleChange} />
 
-                <label htmlFor="password">Contraseña</label>
-                <input type="password" name="password" id="password" onChange={handleChange} placeholder="******"/>
+            <div className="video-background">
+                <video muted autoPlay loop>
+                    <source src={process.env.PUBLIC_URL + "/Portada_DP.mp4"} type="video/mp4" />
+                </video>
+            </div>
 
-                <button>Registro</button>
-            </form>
+            <div>
+                {error && <p>{error}</p>}
+                <form onSubmit={handleSubmit}>
+                    <label htmlFor="email">Email</label>
+                    <input type="email" name="email" placeholder="Ingrese su Email" onChange={handleChange} />
+
+                    <label htmlFor="password">Contraseña</label>
+                    <input type="password" name="password" id="password" onChange={handleChange} placeholder="******" />
+
+                    <button>Registro</button>
+                </form>
+            </div>
         </div>
+
+
     );
 }
 
