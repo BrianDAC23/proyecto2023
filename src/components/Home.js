@@ -7,14 +7,19 @@ export function Home() {
     const { user, logout, loading } = useAuth()
 
     const handleLogout = async () => {
-        await logout();
+        
+        try {
+         await logout();   
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     if (loading) return <h1>Cargando</h1>
 
     return (
         <div>
-            <h1>Bienvenido: {user.email}</h1>
+            <h1>Bienvenido: {user.displayName || user.email}</h1>
             <button onClick={handleLogout}>Cerrar sesión</button>
             <div className="video-background">
                 <div className="cont-principal text-center m-0 p-0">
