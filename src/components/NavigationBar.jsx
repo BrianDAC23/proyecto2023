@@ -40,7 +40,8 @@ function NavigationBar() {
                 Publicaciones
               </Nav.Link>
             </div>
-            <div style={{ maxWidth: "fit-content" }}>
+            
+              <div className="nav-link-container">
               <Nav.Link href="/contacto" className="nav-link-custom">
                 Contacto
               </Nav.Link>

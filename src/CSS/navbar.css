@@ -1,9 +1,19 @@
+
+.nav-link-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 15px;
+}
+
+
 .navbar {
-    border-bottom: 1px solid #e0e0e0;
+    
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
     padding: 10px;
     background-color: #000000; 
-    opacity: 100%;
+    background-image: linear-gradient(to right, #195e4c, #005355, #004759, #003a56, #172c4c);
+    opacity: 0.97;
   }
   
   .navbar-brand {

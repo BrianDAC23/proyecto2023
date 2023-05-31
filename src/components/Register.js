@@ -29,26 +29,17 @@ export function Register() {
 
     }
     return (
-        <div className="login-container-wrapper">
-            <div className="login-container">
-                {error && <p>{error}</p>}
-                <form onSubmit={handleSubmit}>
-                    <h1>Registrarse</h1>
-                    <div className="form-group">
-                        <label htmlFor="email">Email</label>
-                        <input type="email" name="email" placeholder="Ingrese su Email" onChange={handleChange} />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="password">Contraseña</label>
-                        <input type="password" name="password" id="password" onChange={handleChange} placeholder="******" />
-                    </div>
-                    <button className="btn btn-primary mt-3">Registrate</button>
-                    <p className="register-link mt-3">
-                        ¿Ya tienes cuenta? <a href="login">Inicia sesiòn</a>
-                    </p>
-                </form>
-            </div>
+        <div>
+            {error && <p>{error}</p>}
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="email">Email</label>
+                <input type="email" name="email" placeholder="Ingrese su Email" onChange={handleChange} />
 
+                <label htmlFor="password">Contraseña</label>
+                <input type="password" name="password" id="password" onChange={handleChange} placeholder="******"/>
+
+                <button>Registro</button>
+            </form>
         </div>
     );
 }
